@@ -5,7 +5,7 @@ export function useEvent<T extends (...args: any[]) => any>(fn: T) {
   useLayoutEffect(() => {
     fnRef.current = fn
   }, [])
- 
+
   const eventCb = useCallback((...args: Parameters<T>) => {
     return fnRef.current.apply(null, args)
   }, [fnRef])
